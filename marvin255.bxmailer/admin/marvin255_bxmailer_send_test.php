@@ -22,6 +22,9 @@ if (!$USER->isAdmin()) {
     throw new Exception('Access denied');
 }
 
+$app = Application::getInstance();
+$app->getContext()->getResponse()->addHeader('Content-Type', 'application/json');
+
 $root = Application::getInstance()
     ->getContext()
     ->getServer()
